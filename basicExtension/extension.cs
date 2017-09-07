@@ -22,7 +22,7 @@ namespace basicExtension
         }
 
         [DllExport("RVExtensionArgs", CallingConvention = CallingConvention.Winapi)]
-        public static int RVExtensionArgs(StringBuilder output, int outputSize, string function, string[] args, int argsCnt)
+        public static int RVExtensionArgs(StringBuilder output, int outputSize, [MarshalAs(UnmanagedType.LPStr)] string function, [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPStr, SizeParamIndex = 4)] string[] args, int argsCnt)
         {
             outputSize--;
             outP = output;
